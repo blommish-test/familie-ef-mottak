@@ -17,6 +17,8 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.web.client.HttpStatusCodeException
 
+const val ENHETSNUMMER_NAY: String = "4489"
+
 @Service
 class OppgaveService(private val integrasjonerClient: IntegrasjonerClient,
                      private val søknadService: SøknadService,
@@ -24,7 +26,6 @@ class OppgaveService(private val integrasjonerClient: IntegrasjonerClient,
 
     val log: Logger = LoggerFactory.getLogger(this::class.java)
     val secureLogger: Logger = LoggerFactory.getLogger("secureLogger")
-    private val ENHETSNUMMER_NAY: String = "4489"
 
     fun lagJournalføringsoppgaveForSøknadId(søknadId: String): Long? {
         val soknad: Soknad = søknadService.get(søknadId)

@@ -132,7 +132,7 @@ class SakService(private val integrasjonerClient: IntegrasjonerClient,
         }
 
         val mottagendeEnhet = enheter.firstOrNull()?.enhetId
-                              ?: error("Ingen behandlende enhet funnet for søknad ${soknad.id} ")
+                              ?: ENHETSNUMMER_NAY
 
         return OpprettInfotrygdSakRequest(fnr = soknad.fnr,
                                           fagomrade = FAGOMRÅDE_ENSLIG_FORSØRGER,
